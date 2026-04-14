@@ -1,45 +1,48 @@
 <div class="wechatsim-settings-inline">
     <div class="inline_drawer">
         <div class="inline_drawer_toggle inline_drawer_header">
-            <b>WeChatSim - 微信模拟器</b>
+            <b>WeChatSim - 微信模拟器 v3.0</b>
             <div class="inline_drawer_icon fa-solid fa-circle-chevron-down down"></div>
         </div>
         <div class="inline_drawer_content" style="padding: 10px;">
             <div style="margin-bottom: 10px;">
                 <p style="font-size: 13px; color: #888;">
-                    🟢 微信模拟插件已加载！点击页面右下角的绿色微信图标打开手机。
+                    🟢 微信模拟插件已加载！点击右下角绿色图标打开手机。
                 </p>
             </div>
             <div style="margin-bottom: 10px;">
-                <h4 style="margin-bottom: 5px;">快速说明：</h4>
-                <ul style="font-size: 13px; color: #666; padding-left: 20px;">
-                    <li>在手机"我" → "插件设置"中配置API</li>
-                    <li>支持独立的API地址、密钥和模型选择</li>
-                    <li>点击"拉取模型"自动获取可用模型列表</li>
-                    <li>世界书格式：key=角色名，content含头像/照片/视频链接</li>
-                    <li>发多条消息后，点击手机下方"生成回复"按钮</li>
-                    <li>支持私聊、群聊、朋友圈、公众号、购物、论坛</li>
+                <h4 style="margin-bottom: 5px;">功能说明：</h4>
+                <ul style="font-size: 13px; color: #666; padding-left: 20px; line-height: 1.8;">
+                    <li>手机左侧3个按钮：<b>生成回复</b> / <b>上传文件</b> / <b>设置</b></li>
+                    <li>添加好友时自动读取世界书 + 调用API生成详细信息</li>
+                    <li>只读取当前酒馆角色的世界书</li>
+                    <li>不预置任何好友，全部由玩家自行添加</li>
+                    <li>支持上传本地图片/视频到头像、聊天、朋友圈</li>
+                    <li>红包支持查看抢夺详情和手气最佳</li>
+                    <li>论坛一次性生成帖子+回复，可搜索</li>
+                    <li>购物支持搜索商品</li>
+                    <li>公众号支持关注并保留</li>
+                    <li>AI回复参考聊天记录和游玩进度</li>
+                    <li>所有数据自动保存</li>
                 </ul>
             </div>
             <div style="margin-bottom: 10px;">
-                <h4 style="margin-bottom: 5px;">世界书条目格式示例：</h4>
-                <pre style="background: #f5f5f5; padding: 8px; border-radius: 4px; font-size: 12px; overflow-x: auto;">
-Key: 小明
+                <h4 style="margin-bottom: 5px;">世界书条目格式：</h4>
+                <pre style="background: #f5f5f5; padding: 8px; border-radius: 4px; font-size: 12px; overflow-x: auto; line-height: 1.6;">Key: 角色名
 Content:
 头像：https://example.com/avatar.jpg
-照片：https://example.com/photo1.jpg,https://example.com/photo2.jpg
-视频：https://example.com/video1.mp4
-人设：活泼开朗的大学生，喜欢打游戏
-聊天风格：经常用表情包，说话很随意</pre>
+照片：https://example.com/p1.jpg,https://example.com/p2.jpg
+视频：https://example.com/v1.mp4
+人设：活泼开朗的大学生
+聊天风格：经常用表情包，说话很随意
+签名：今天也要加油鸭~</pre>
             </div>
-            <div>
-                <button class="menu_button" onclick="wechatSim?.togglePhone()">
-                    <i class="fa-solid fa-mobile-screen"></i>
-                    打开/关闭微信
+            <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                <button class="menu_button" onclick="W?.toggle()">
+                    <i class="fa-solid fa-mobile-screen"></i> 打开/关闭
                 </button>
-                <button class="menu_button" onclick="wechatSim?.openPluginSettings()">
-                    <i class="fa-solid fa-gear"></i>
-                    插件设置
+                <button class="menu_button" onclick="W?.openSettings()">
+                    <i class="fa-solid fa-gear"></i> 插件设置
                 </button>
             </div>
         </div>
