@@ -742,3 +742,222 @@
 .sp-btn.red { background: var(--wc-red); }
 
 @media (max-height: 800px) { #wechat-phone { height: 620px; } }
+/* ============================================================
+   移动端适配 - 追加到 style.css 末尾
+   ============================================================ */
+
+/* 强制按钮可见 */
+#wechat-sim-container {
+    position: fixed !important;
+    right: 10px !important;
+    bottom: 10px !important;
+    z-index: 2147483647 !important;
+    pointer-events: auto !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    transform: none !important;
+}
+
+#wechat-toggle-btn {
+    position: relative !important;
+    z-index: 2147483647 !important;
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+}
+
+/* ===== 移动端检测 (宽度 < 768px) ===== */
+@media screen and (max-width: 768px) {
+
+    #wechat-sim-container {
+        right: 8px !important;
+        bottom: 60px !important; /* 避开SillyTavern底部栏 */
+    }
+
+    #wechat-toggle-btn {
+        width: 50px !important;
+        height: 50px !important;
+        box-shadow: 0 4px 16px rgba(0,0,0,0.35) !important;
+        border: 2px solid rgba(255,255,255,0.3) !important;
+    }
+    #wechat-toggle-btn svg {
+        width: 28px !important;
+        height: 28px !important;
+    }
+
+    /* 手机全屏模式 */
+    #wechat-phone {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        bottom: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        border-radius: 0 !important;
+        z-index: 2147483646 !important;
+        box-shadow: none !important;
+        animation: none !important;
+    }
+
+    /* 移动端侧边按钮改为手机内顶部横排 */
+    #wechat-action-panel {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        bottom: auto !important;
+        width: 100% !important;
+        flex-direction: row !important;
+        justify-content: center !important;
+        gap: 12px !important;
+        padding: 6px 0 !important;
+        background: rgba(0,0,0,0.85) !important;
+        z-index: 2147483647 !important;
+        border-radius: 0 !important;
+    }
+
+    .wc-side-btn {
+        width: 40px !important;
+        height: 40px !important;
+    }
+    .wc-side-btn svg {
+        width: 18px !important;
+        height: 18px !important;
+    }
+    .wc-side-btn .btn-label {
+        display: none !important; /* 移动端不显示悬浮标签 */
+    }
+
+    /* 移动端手机内容下移，避免被操作栏挡住 */
+    #wechat-phone.active .wc-statusbar {
+        margin-top: 52px !important;
+    }
+
+    /* 设置面板全屏 */
+    #wc-settings-panel {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        bottom: 0 !important;
+        width: 100% !important;
+        max-height: 100% !important;
+        border-radius: 0 !important;
+        z-index: 2147483647 !important;
+    }
+
+    /* 模态框适配 */
+    .wc-modal {
+        width: 90% !important;
+        max-width: 320px !important;
+    }
+
+    /* 聊天输入框适配 */
+    .wc-input-bar {
+        padding-bottom: env(safe-area-inset-bottom, 8px) !important;
+    }
+
+    /* Tab栏安全区 */
+    .wc-tabbar {
+        padding-bottom: env(safe-area-inset-bottom, 0px) !important;
+    }
+
+    /* 朋友圈图片适配 */
+    .moment-item .moment-images img {
+        max-width: 100% !important;
+    }
+
+    /* 购物车栏安全区 */
+    .cart-bar {
+        padding-bottom: env(safe-area-inset-bottom, 0px) !important;
+    }
+}
+
+/* ===== 超小屏幕 (宽度 < 400px) ===== */
+@media screen and (max-width: 400px) {
+
+    #wechat-sim-container {
+        right: 6px !important;
+        bottom: 55px !important;
+    }
+
+    #wechat-toggle-btn {
+        width: 46px !important;
+        height: 46px !important;
+    }
+
+    .wc-navbar .nav-title {
+        font-size: 15px !important;
+        max-width: 150px !important;
+    }
+
+    .msg-bubble {
+        font-size: 14px !important;
+    }
+
+    .chat-list-item .chat-name .name-text {
+        max-width: 140px !important;
+    }
+
+    .shop-grid {
+        gap: 6px !important;
+        padding: 6px !important;
+    }
+
+    .bp-grid {
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 6px !important;
+    }
+}
+
+/* ===== 横屏适配 ===== */
+@media screen and (max-width: 768px) and (orientation: landscape) {
+    #wechat-phone {
+        flex-direction: row !important;
+    }
+
+    #wechat-action-panel {
+        top: auto !important;
+        bottom: 0 !important;
+        padding: 4px 0 !important;
+    }
+
+    #wechat-phone.active .wc-statusbar {
+        margin-top: 0 !important;
+    }
+
+    .wc-chat-messages {
+        max-height: calc(100vh - 140px) !important;
+    }
+}
+
+/* ===== 确保不被 SillyTavern 样式覆盖 ===== */
+#wechat-sim-container,
+#wechat-sim-container *,
+#wechat-phone,
+#wechat-phone * {
+    box-sizing: border-box !important;
+}
+
+#wechat-sim-container button {
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif !important;
+}
+
+/* 防止 SillyTavern 的 overflow:hidden 裁剪 */
+body.mobile #wechat-sim-container,
+#sheld #wechat-sim-container {
+    position: fixed !important;
+    z-index: 2147483647 !important;
+}
+
+/* iOS Safari 底部安全区 */
+@supports (padding-bottom: env(safe-area-inset-bottom)) {
+    .wc-tabbar { padding-bottom: env(safe-area-inset-bottom); }
+    .wc-input-bar { padding-bottom: calc(8px + env(safe-area-inset-bottom)); }
+    .cart-bar { padding-bottom: env(safe-area-inset-bottom); }
+}
