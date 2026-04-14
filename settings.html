@@ -1,0 +1,47 @@
+<div class="wechatsim-settings-inline">
+    <div class="inline_drawer">
+        <div class="inline_drawer_toggle inline_drawer_header">
+            <b>WeChatSim - 微信模拟器</b>
+            <div class="inline_drawer_icon fa-solid fa-circle-chevron-down down"></div>
+        </div>
+        <div class="inline_drawer_content" style="padding: 10px;">
+            <div style="margin-bottom: 10px;">
+                <p style="font-size: 13px; color: #888;">
+                    🟢 微信模拟插件已加载！点击页面右下角的绿色微信图标打开手机。
+                </p>
+            </div>
+            <div style="margin-bottom: 10px;">
+                <h4 style="margin-bottom: 5px;">快速说明：</h4>
+                <ul style="font-size: 13px; color: #666; padding-left: 20px;">
+                    <li>在手机"我" → "插件设置"中配置API</li>
+                    <li>支持独立的API地址、密钥和模型选择</li>
+                    <li>点击"拉取模型"自动获取可用模型列表</li>
+                    <li>世界书格式：key=角色名，content含头像/照片/视频链接</li>
+                    <li>发多条消息后，点击手机下方"生成回复"按钮</li>
+                    <li>支持私聊、群聊、朋友圈、公众号、购物、论坛</li>
+                </ul>
+            </div>
+            <div style="margin-bottom: 10px;">
+                <h4 style="margin-bottom: 5px;">世界书条目格式示例：</h4>
+                <pre style="background: #f5f5f5; padding: 8px; border-radius: 4px; font-size: 12px; overflow-x: auto;">
+Key: 小明
+Content:
+头像：https://example.com/avatar.jpg
+照片：https://example.com/photo1.jpg,https://example.com/photo2.jpg
+视频：https://example.com/video1.mp4
+人设：活泼开朗的大学生，喜欢打游戏
+聊天风格：经常用表情包，说话很随意</pre>
+            </div>
+            <div>
+                <button class="menu_button" onclick="wechatSim?.togglePhone()">
+                    <i class="fa-solid fa-mobile-screen"></i>
+                    打开/关闭微信
+                </button>
+                <button class="menu_button" onclick="wechatSim?.openPluginSettings()">
+                    <i class="fa-solid fa-gear"></i>
+                    插件设置
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
